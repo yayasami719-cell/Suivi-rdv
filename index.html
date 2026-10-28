@@ -728,7 +728,48 @@ async function init(){
 }
 init();
 })();
-</script>
+</script>// Fonction dyal Inscription (Sign Up)
+document.getElementById('btn-signup').addEventListener('click', async () => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-</body>
+    const { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: password,
+    });
+
+    if (error) {
+        alert("Mohim kayn mochkil: " + error.message);
+    } else {
+        alert("Tqdditi tsajl b naja7! Chof l'email dyalk ila kan bghi confirmation.");
+    }
+});
+
+// Fonction dyal Connexion (Sign In)
+document.getElementById('btn-login').addEventListener('click', async () => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+    });
+
+    if (error) {
+        alert("Ghalat f l'email wla mot de passe: " + error.message);
+    } else {
+        alert("Mra7ba bik! Dkhlti b naja7.");
+        // Hna t9dr tkhfi formulaire w tchedd l'application dyalk
+        document.getElementById('auth-container').style.display = 'none';
+    }
+});
+
+</body><div id="auth-container" style="max-width: 400px; margin: 50px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
+    <h2>Tewasal m3ana / Connexion</h2>
+    <input type="email" id="email" placeholder="Dkhl l'Email dyalk" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;"><br>
+    <input type="password" id="password" placeholder="Dkhl Mot de passe" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;"><br>
+    <button id="btn-login" style="width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; margin-bottom: 5px;">Dkhl (Sign In)</button>
+    <button id="btn-signup" style="width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">Tsajl Jdid (Sign Up)</button>
+
+</div>
 </html>
