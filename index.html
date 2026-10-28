@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="fr">
-<head>
+<head><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0F766E">
@@ -189,6 +189,12 @@ details.blk[open] summary{margin-bottom:10px}
 <div id="toast" class="toast" role="status"></div>
 
 <script>
+  const SUPABASE_URL = 'https://rlvsoytkrusqhxptcrfm.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_MlmjiBp-xXvjK5h3RkulbA_dHhh-P4i';
+  
+  
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  console.log("Supabase m-connecté b naja7!");
 (function(){
 'use strict';
 var $=function(s,r){return (r||document).querySelector(s)};
