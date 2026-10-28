@@ -189,7 +189,7 @@ details.blk[open] summary{margin-bottom:10px}
 <div id="toast" class="toast" role="status"></div>
 
 <script>
-  
+(function(){
 'use strict';
 var $=function(s,r){return (r||document).querySelector(s)};
 var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]})};
@@ -725,4 +725,4 @@ init();
 </script>
 
 </body>
-</script>
+</html>
