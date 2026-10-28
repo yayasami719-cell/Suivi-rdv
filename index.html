@@ -728,41 +728,7 @@ async function init(){
 }
 init();
 })();
-</script>// Fonction dyal Inscription (Sign Up)
-document.getElementById('btn-signup').addEventListener('click', async () => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    const { data, error } = await supabase.auth.signUp({
-        email: email,
-        password: password,
-    });
-
-    if (error) {
-        alert("Mohim kayn mochkil: " + error.message);
-    } else {
-        alert("Tqdditi tsajl b naja7! Chof l'email dyalk ila kan bghi confirmation.");
-    }
-});
-
-// Fonction dyal Connexion (Sign In)
-document.getElementById('btn-login').addEventListener('click', async () => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password,
-    });
-
-    if (error) {
-        alert("Ghalat f l'email wla mot de passe: " + error.message);
-    } else {
-        alert("Mra7ba bik! Dkhlti b naja7.");
-        // Hna t9dr tkhfi formulaire w tchedd l'application dyalk
-        document.getElementById('auth-container').style.display = 'none';
-    }
-});
+</script>
 
 </body><div id="auth-container" style="max-width: 400px; margin: 50px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center;">
     <h2>Tewasal m3ana / Connexion</h2>
